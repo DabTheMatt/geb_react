@@ -24,8 +24,6 @@ function App() {
 
   function handleDelete(index) {
     const tempProducts = [...products];
-    console.log(tempProducts);
-
     tempProducts[index].deleted = !tempProducts[index].deleted;
     setProducts(tempProducts);
   }
