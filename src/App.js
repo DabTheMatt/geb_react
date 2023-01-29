@@ -11,7 +11,7 @@ function App() {
     setInputValue(e.target.value);
   }
 
-  function addProduct(value) {
+  function addProduct() {
     const newProduct = {
       name: inputValue,
       deleted: false
@@ -20,6 +20,13 @@ function App() {
     const tempProducts = [...products, newProduct];
     setProducts(tempProducts);
     setInputValue('');
+  }
+
+  function delProduct(index) {
+    console.log(index);
+    let tempProducts = [...products];
+    let newArray = tempProducts.filter((element, elementIndex) => elementIndex != index);
+    setProducts(newArray);
   }
 
   function handleDelete(index) {
@@ -44,6 +51,7 @@ function App() {
                   <div key={index} className="list-element">
                     <div className="element-name undeleted">{element.name}</div>
                     <input value={element.deleted} onChange={() => handleDelete(index)} type="checkbox"></input>
+                    <button onClick={() => delProduct(index)}>Del</button>
                   </div>
                 ) : 
                 (
