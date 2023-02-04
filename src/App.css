@@ -3,12 +3,12 @@ body {
   color: #333;
 }
 
-.deleted {
+.checked {
   color: red;
   text-decoration: line-through;
 }
 
-.undeleted {
+.unchecked {
   color: green;
   text-decoration: none;
 }
