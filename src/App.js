@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
-import Item from './Containers/Item/Item';
+import Item from './Components/Item/Item';
 
 function App() {
 
