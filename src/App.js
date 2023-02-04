@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
+import Item from './Containers/Item/Item';
 
 function App() {
 
@@ -14,7 +15,7 @@ function App() {
   function addProduct() {
     const newProduct = {
       name: inputValue,
-      deleted: false
+      checked: false
     };
 
     const tempProducts = [...products, newProduct];
@@ -29,9 +30,9 @@ function App() {
     setProducts(newArray);
   }
 
-  function handleDelete(index) {
+  function handleChecked(index) {
     const tempProducts = [...products];
-    tempProducts[index].deleted = !tempProducts[index].deleted;
+    tempProducts[index].checked = !tempProducts[index].checked;
     setProducts(tempProducts);
   }
 
@@ -43,24 +44,18 @@ function App() {
         <button onClick={() => addProduct()}>Add</button>
       </div>
       <div className="list-container">
+
         {products.map((element, index) => {
           return(
             <div key={index} className='element-container'>
-              {!element.deleted ?
-                (
-                  <div key={index} className="list-element">
-                    <div className="element-name undeleted">{element.name}</div>
-                    <input value={element.deleted} onChange={() => handleDelete(index)} type="checkbox"></input>
-                    <button onClick={() => delProduct(index)}>Del</button>
-                  </div>
-                ) : 
-                (
-                  <div key={index} className="list-element">
-                    <div className="element-name deleted">{element.name}</div>
-                    <input value={element.deleted} onChange={() => handleDelete(index)} type="checkbox"></input>
-                  </div>
-                )
-              }
+
+                  <Item 
+                  elName = {element}
+                  elIndex = {index}
+                  delProduct = {delProduct}
+                  handleChecked = {handleChecked}
+                  />
+                
             </div>
           )
         })}
