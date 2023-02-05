@@ -1,0 +1,35 @@
+.notebook-container {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.add-list-container {
+    width: 100%;
+}
+
+.add-list {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 80%;
+    height: 50px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.add-element:hover {
+    color: red;
+    cursor: pointer;
+}
+
+.under-add-list-line {
+    width: 80%;
+}
+
+.notes-container {
+    width: 400px;
+}

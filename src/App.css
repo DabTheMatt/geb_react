@@ -2,13 +2,3 @@ body {
   background-color: #e1e1e1;
   color: #333;
 }
-
-.checked {
-  color: red;
-  text-decoration: line-through;
-}
-
-.unchecked {
-  color: green;
-  text-decoration: none;
-}
