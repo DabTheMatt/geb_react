@@ -1,0 +1,38 @@
+.add-window {
+    box-sizing: border-box;
+    width: 50%;
+    height: auto;
+    background-color: hsl(0, 0%, 95%);
+    border: 0.1px solid black;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    box-shadow: 20px 20px 20px grey;
+}
+
+.add-window-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.add-window-header p {
+    margin: 0;
+}
+
+.colse-add-window-x:hover {
+    color: red;
+    cursor: pointer;
+}
+
+.add-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.add-form * {
+    margin: 10px;
+}
