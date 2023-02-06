@@ -2,10 +2,13 @@ import React, {useState} from "react";
 import './Notebook.css';
 import AddWindow from '../AddWindow/AddWindow';
 import Note from '../Note/Note';
+import OptionsWindow from "../OptionsWindow/OptionsWindow";
 
 function Notebook() {
 
   const [notes, setNotes] = useState([]);
+  const [notesDownDirection, setNotesDownDirection] = useState(true);
+  const [contents, setContents] = useState([]);
   const [addOns, setAddOns] = useState(['note', 'photo', 'link']);
   const [activeAddOnWindow, setActiveAddOnWindow] = useState('');
   const [noteId, setNoteId] = useState(1);
@@ -31,11 +34,16 @@ function Notebook() {
     setNotes(tempNotes);
     setNoteId(noteId + 1);
   }
+
+  function changeNotesDirection() {
+    setNotesDownDirection(!notesDownDirection);
+    setNotes(notes.reverse())
+  }
   
   return (
     <div className="notebook-container">
-      notebook
-      <div className="add-list-container">
+      <div className="add-list-container header-font">
+        <div className="notes-main-title">Lorem ipsum</div>
         <ul className="add-list">
           {addOns.map((addOn, index) => {
               return (
@@ -66,6 +74,11 @@ function Notebook() {
           )
         })}
       </div>
+      <OptionsWindow 
+        direction = {notesDownDirection}
+        changeDirection = {changeNotesDirection}
+        notes = {notes}
+      />
     </div>
   )
 }
