@@ -11,6 +11,11 @@ function printDate() {
     return (year + "-" + month + "-" + day);
 }
 
+function countLetters() {
+    let tempString = props.content.replace(/ /g, "");
+    return tempString.length;
+}
+
 function countWords() {
     let tempArray = props.content.split(" ");
     return tempArray.length;
@@ -21,7 +26,7 @@ function countWords() {
                 <div className="life-line-info">{printDate()}</div>
             </div>
             <div className="note-body">
-                <div className="note-title">{props.title}<span className="word-count">{countWords()} words</span></div>
+                <div id={props.title} className="note-title header-font">{props.title}<span className="word-count">{countWords()} words / {countLetters()} letters</span></div>
                 <div className="note-content">{props.content}</div>
             </div>
 

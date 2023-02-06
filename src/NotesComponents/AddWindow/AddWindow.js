@@ -14,7 +14,7 @@ function AddWindow(props) {
     }
 
     return (
-        <div className='add-window'>
+        <div className='add-window header-font'>
             <div className='add-window-header'>
                 <p>add {props.type}</p>
                 <div className='colse-add-window-x' onClick={() => props.closeWindow()}>close</div>
