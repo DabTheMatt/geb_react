@@ -20,7 +20,7 @@ function OptionsWindow(props) {
       <div className="options-title header-font">Contents:</div>
         {props.notes.map((note) => {
           return (
-            <a href={`#${note.noteTitle}`}><div className="content-title hover">> {note.noteTitle}</div></a>
+            <a href={`#${note.noteTitle}`}><div className="content-title hover">- {note.noteTitle}</div></a>
           )
         })}
       </div>

@@ -11,7 +11,7 @@ function Notebook() {
   const [contents, setContents] = useState([]);
   const [addOns, setAddOns] = useState(['note', 'photo', 'link']);
   const [activeAddOnWindow, setActiveAddOnWindow] = useState('');
-  const [noteId, setNoteId] = useState(1);
+  const [noteId, setNoteId] = useState(0);
 
   function showAddInput(addOn) {
     setActiveAddOnWindow(addOn);
@@ -22,7 +22,6 @@ function Notebook() {
   }
 
   function addNote(content, title) {
-    console.log('add', content)
     const newNote = {
       noteId: noteId,
       noteTitle: title,
@@ -35,6 +34,11 @@ function Notebook() {
     setNoteId(noteId + 1);
   }
 
+  function deleteNote(index) {
+    let filteredNotes = notes.filter((note, noteIndex) => note.noteId != index);
+    setNotes(filteredNotes);
+  }
+
   function changeNotesDirection() {
     setNotesDownDirection(!notesDownDirection);
     setNotes(notes.reverse())
@@ -43,7 +47,7 @@ function Notebook() {
   return (
     <div className="notebook-container">
       <div className="add-list-container header-font">
-        <div className="notes-main-title">Lorem ipsum</div>
+        <div className="notes-main-title"></div>
         <ul className="add-list">
           {addOns.map((addOn, index) => {
               return (
@@ -67,9 +71,10 @@ function Notebook() {
         {notes.map((note) => {
           return (
             <Note 
-            id = {note.noteId}
+            noteId = {note.noteId}
             title = {note.noteTitle}
             content = {note.noteContent}
+            deleteNote = {deleteNote}
             />
           )
         })}

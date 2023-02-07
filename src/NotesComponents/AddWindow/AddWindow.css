@@ -1,31 +1,72 @@
 .add-window {
     box-sizing: border-box;
-    width: 50%;
+    width: 600px;
     height: auto;
-    background-color: hsl(0, 0%, 95%);
-    border: 0.1px solid black;
-    border-radius: 5px;
-    padding: 10px;
-    margin-bottom: 20px;
+    border-radius: 10px;
+    padding: 40px;
+    box-shadow: 0px 0px 80px hsl(0, 0%, 36%);
     position: absolute;
-    top: 100px;
+    top: 50%;
     left: 50%;
-    transform: translate(-50%, 0);
-    box-shadow: 20px 20px 20px grey;
+    transform: translate(-50%, -50%);
+    background-color: hsl(0, 0%, 99%);
+    z-index: 2;
+    transition: 1s all;
+    color: hsl(0, 0%, 65%);
+}
+
+.add-widow label {
+    font-size: 14px;
+}
+
+.add-window-title {
+    font-size: 12px;
+}
+
+.add-window input {
+    border: none;
+    border-bottom: 0.01px dashed hsl(0, 0%, 35%);
+    background-color: hsl(0, 0%, 99%);
+    outline: none;
+    color: hsl(0, 0%, 35%);
+    font-size: 14px;
+    padding: 5px 0px;
+}
+
+.add-window textarea {
+    border: none;
+    border-bottom: 0.01px dashed hsl(0, 0%, 35%);
+    background-color: hsl(0, 0%, 99%);
+    outline: none;
+    color: hsl(0, 0%, 35%);
+    font-size: 14px;
+}
+
+.add-window button {
+    width: 100px;
+    background-color: hsl(0, 0%, 99%);
+    border: none;
+    margin: 0 auto;
+    font-size: 16px;
+    font-weight: 700;
+    margin-top: 20px;
+    cursor: pointer;
+    color: hsl(0, 0%, 65%);
 }
 
 .add-window-header {
     display: flex;
     justify-content: space-between;
+    margin: 0 10px;
 }
 
 .add-window-header p {
     margin: 0;
 }
 
-.colse-add-window-x:hover {
-    color: red;
+.colse-add-window-x {
     cursor: pointer;
+    font-size: 12px;
 }
 
 .add-form {

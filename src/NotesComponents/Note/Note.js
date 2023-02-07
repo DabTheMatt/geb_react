@@ -26,7 +26,13 @@ function countWords() {
                 <div className="life-line-info">{printDate()}</div>
             </div>
             <div className="note-body">
-                <div id={props.title} className="note-title header-font">{props.title}<span className="word-count">{countWords()} words / {countLetters()} letters</span></div>
+                <div className="note-header-container">
+                    <div id={props.title} className="note-title header-font">{props.title}<span className="word-count">{countWords()} words / {countLetters()} letters</span></div>
+                    <div className="note-options">
+                        <div className="note-delete-button hover header-font" onClick={()=>props.deleteNote(props.noteId)}>delete</div>
+                    </div>
+                </div>
+                
                 <div className="note-content">{props.content}</div>
             </div>
 
