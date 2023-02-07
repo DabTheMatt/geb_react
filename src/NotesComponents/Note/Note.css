@@ -5,15 +5,28 @@
 
 }
 
+.note-header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .note-title {
-    font-size: 20px;
+    font-size: 22px;
     font-weight: bolder;
     font-weight: 800;
     text-transform: capitalize;
     color: hsl(51, 100%, 35%);
 }
 
+.note-delete-button {
+    margin-right: 20px;
+    font-size: 10px;
+    color: hsl(0, 0%, 70%);;
+}
+
 .note-content {
+    width: 600px;
     padding: 10px;
     font-weight: 300;
 }

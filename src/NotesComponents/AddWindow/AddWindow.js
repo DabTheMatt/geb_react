@@ -16,15 +16,17 @@ function AddWindow(props) {
     return (
         <div className='add-window header-font'>
             <div className='add-window-header'>
-                <p>add {props.type}</p>
-                <div className='colse-add-window-x' onClick={() => props.closeWindow()}>close</div>
+                <p className='add-window-title'></p>
+                <div className='colse-add-window-x hover' onClick={() => props.closeWindow()}>close</div>
             </div>
             
             
             <div className='add-form'>
-                <input type="text" id='add-note-title' value={titleValue} onChange={(value) => handleTitle(value)}></input>
-                <textarea id='add-note-textarea' name='textarea' rows="5" cols='35' value={textAreaValue} onChange={(value) => handleTextArea(value)}></textarea>
-                <button type='submit' className='add-content' onClick={() => {props.addNote(textAreaValue, titleValue); props.closeWindow()}} >add</button>
+                <label>title</label>
+                <input type="text" id='add-note-title' value={titleValue} onChange={(value) => handleTitle(value)} autoFocus></input>
+                <label>note</label>
+                <textarea id='add-note-textarea' className='text-font' name='textarea' rows="12" cols='35' value={textAreaValue} onChange={(value) => handleTextArea(value)}></textarea>
+                <button type='submit' className='add-content header-font hover' onClick={() => {props.addNote(textAreaValue, titleValue); props.closeWindow()}} >add note</button>
             </div>
         </div>
     )
