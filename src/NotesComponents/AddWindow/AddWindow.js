@@ -26,7 +26,7 @@ function AddWindow(props) {
                 <input type="text" id='add-note-title' value={titleValue} onChange={(value) => handleTitle(value)} autoFocus></input>
                 <label>note</label>
                 <textarea id='add-note-textarea' className='text-font' name='textarea' rows="12" cols='35' value={textAreaValue} onChange={(value) => handleTextArea(value)}></textarea>
-                <button type='submit' className='add-content header-font hover' onClick={() => {props.addNote(textAreaValue, titleValue); props.closeWindow()}} >add note</button>
+                <button type='submit' className='add-content header-font hover' onClick={() => {props.addNote(textAreaValue, titleValue); props.closeWindow(); props.addToFirebase(textAreaValue, titleValue)}} >add note</button>
             </div>
         </div>
     )

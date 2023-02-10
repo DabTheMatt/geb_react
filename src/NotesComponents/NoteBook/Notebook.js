@@ -4,14 +4,34 @@ import AddWindow from '../AddWindow/AddWindow';
 import Note from '../Note/Note';
 import OptionsWindow from "../OptionsWindow/OptionsWindow";
 
-function Notebook() {
+import { collection, addDoc } from "firebase/firestore";
+import {db} from '../firebase';
+
+
+const Notebook = () => {
 
   const [notes, setNotes] = useState([]);
+  
+  const [note, setNote] = useState('');
+
   const [notesDownDirection, setNotesDownDirection] = useState(true);
   const [contents, setContents] = useState([]);
   const [addOns, setAddOns] = useState(['note', 'photo', 'link']);
   const [activeAddOnWindow, setActiveAddOnWindow] = useState('');
   const [noteId, setNoteId] = useState(0);
+
+  const addTodo = async (e) => {
+    e.preventDefault();  
+   
+    try {
+        const docRef = await addDoc(collection(db, "notes"), {
+          note: note,    
+        });
+        console.log("Document written with ID: ", docRef.id);
+      } catch (e) {
+        console.error("Error adding document: ", e);
+      }
+  }
 
   function showAddInput(addOn) {
     setActiveAddOnWindow(addOn);
@@ -35,7 +55,7 @@ function Notebook() {
   }
 
   function deleteNote(index) {
-    let filteredNotes = notes.filter((note, noteIndex) => note.noteId != index);
+    let filteredNotes = notes.filter((note, noteIndex) => note.noteId !== index);
     setNotes(filteredNotes);
   }
 
@@ -62,6 +82,7 @@ function Notebook() {
           type={activeAddOnWindow}
           closeWindow = {closeAddWindow}
           addNote = {addNote}
+          addToFirebase = {addTodo}
           />
         ) : (
           <div></div>
